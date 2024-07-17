@@ -18,7 +18,7 @@ const emailsent = {
             
             const htmlContent = await fs.readFile('src/content/html.html', 'utf-8');
             const info = await transporter.sendMail({
-                from: 'teamconatus@gmail.com',
+                from: 'aman2210099@akgec.ac.in',
                 to: email,
                 subject: 'Successfully register',
                 html: htmlContent,
