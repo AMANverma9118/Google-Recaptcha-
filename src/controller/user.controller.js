@@ -5,6 +5,8 @@ const ApiError = require("../utils/Apierror");
 const Apiresponse = require('../utils/Apiresponse');
 const emailsent = require("../utils/email");
 
+
+//controller
 const Registration = async (req, res) => {
 
     const secretKey = process.env.SECRET_KEY;
@@ -15,7 +17,7 @@ const Registration = async (req, res) => {
         return res.status(401).json(new Apiresponse(401, null, 'Token is required for verification'));
     }
 
-    if (token) {
+    if (token) { 
         const verifyurl = `https://www.google.com/recaptcha/api/siteverify?secret=${secretKey}&response=${token}`;
         const response = await axios.post(verifyurl);
 
