@@ -39,7 +39,7 @@ const UserSchema = new mongoose.Schema({
         required: true,
         unique: true,
         validate: {
-            validator: value => /^(21|22|23)\d{5,6}(d|D)?$/.test(value),
+            validator: value => /^(23)\d{5,6}?$/.test(value),
             message: 'Student Id is not valid',
         },
     },
