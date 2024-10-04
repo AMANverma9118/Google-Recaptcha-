@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google reCAPTCHA v3 Example</title>
+    <script src="https://www.google.com/recaptcha/api.js?render=6LfHXrgpAAAAAIyxKAmFAwfhD3281SIqU6prrPfQ"></script>
+    <style>
+        .container {
+            max-width: 400px;
+            margin: 50px auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+
+        input[type="submit"] {
+            background-color: #007bff;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+
+        .error {
+            color: red;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Google reCAPTCHA v2 Example</h1>
+       <button class="g-recaptcha"
+       data-callback='onSubmit' 
+       data-action='submit' onclick="onClick()">Submit</button>
+    </div>
+    <script>
+console.log(recaptcha.ready())
+      function onClick(e) {
+        grecaptcha.ready(function() {
+          grecaptcha.execute('6LfHXrgpAAAAAIyxKAmFAwfhD3281SIqU6prrPfQ', {action: 'submit'}).then(function(token) {
+              // Add your logic to submit to your backend server here.
+              console.log(token)
+          });
+        });
+      }
+        
+    </script>
+</body>
+</html>
